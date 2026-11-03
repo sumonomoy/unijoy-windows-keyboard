@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class KeyboardHookEngine : IDisposable
     {
@@ -128,7 +128,7 @@ namespace UniBijoyKeyboard
             public HotkeyWindow(KeyboardHookEngine owner)
             {
                 _owner = owner;
-                _shutdownMsg = RegisterWindowMessage("UniBijoyKeyboard_CleanShutdown_Msg");
+                _shutdownMsg = RegisterWindowMessage("UnijoyKeyboard_CleanShutdown_Msg");
 
                 CreateHandle(new CreateParams());
 

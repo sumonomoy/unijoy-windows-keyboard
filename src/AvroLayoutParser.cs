@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class KeyMappingEntry
     {
@@ -47,7 +47,7 @@ namespace UniBijoyKeyboard
         {
             FilePath = "";
             AvroKeyboardVersion = "4";
-            LayoutName = "UniBijoy";
+            LayoutName = "Unijoy";
             LayoutVersion = "4";
             DeveloperName = "";
             DeveloperComment = "";
@@ -197,7 +197,7 @@ namespace UniBijoyKeyboard
             }
 
             string exeDir = AppDomain.CurrentDomain.BaseDirectory;
-            string localPath = Path.Combine(exeDir, "UniBijoy.avrolayout");
+            string localPath = Path.Combine(exeDir, "Unijoy.avrolayout");
             if (File.Exists(localPath))
             {
                 try
@@ -212,7 +212,7 @@ namespace UniBijoyKeyboard
             Assembly asm = Assembly.GetExecutingAssembly();
             foreach (string resName in asm.GetManifestResourceNames())
             {
-                if (resName.EndsWith("UniBijoy.avrolayout", StringComparison.OrdinalIgnoreCase))
+                if (resName.EndsWith("Unijoy.avrolayout", StringComparison.OrdinalIgnoreCase))
                 {
                     using (Stream s = asm.GetManifestResourceStream(resName))
                     {
@@ -222,7 +222,7 @@ namespace UniBijoyKeyboard
                             {
                                 string xml = reader.ReadToEnd();
                                 var layout = ParseXmlContent(xml);
-                                layout.FilePath = "(Built-in UniBijoy.avrolayout)";
+                                layout.FilePath = "(Built-in Unijoy.avrolayout)";
                                 return layout;
                             }
                         }
@@ -230,7 +230,7 @@ namespace UniBijoyKeyboard
                 }
             }
 
-            throw new FileNotFoundException("Could not find UniBijoy.avrolayout in folder or embedded resources.");
+            throw new FileNotFoundException("Could not find Unijoy.avrolayout in folder or embedded resources.");
         }
 
         public static AvroLayout LoadFromFile(string filePath)
@@ -256,7 +256,7 @@ namespace UniBijoyKeyboard
             var layout = new AvroLayout
             {
                 AvroKeyboardVersion = GetTag(rawTags, "AvroKeyboardVersion", "4").Trim(),
-                LayoutName = GetTag(rawTags, "LayoutName", "UniBijoy").Trim(),
+                LayoutName = GetTag(rawTags, "LayoutName", "Unijoy").Trim(),
                 LayoutVersion = GetTag(rawTags, "LayoutVersion", "4").Trim(),
                 DeveloperName = GetTag(rawTags, "DeveloperName", "").Trim(),
                 DeveloperComment = GetTag(rawTags, "DeveloperComment", "").Trim(),

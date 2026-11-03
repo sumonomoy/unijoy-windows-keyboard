@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class TrayApplicationContext : ApplicationContext
     {
@@ -162,7 +162,7 @@ namespace UniBijoyKeyboard
             _notifyIcon.Icon = isBn ? _iconBengali : _iconEnglish;
 
             string modeName = isBn ? ("বাং (" + _layout.LayoutName + ")") : "EN (English)";
-            string tooltip = string.Format("UniBijoy: {0} [Ctrl+Space]", modeName);
+            string tooltip = string.Format("Unijoy: {0} [Ctrl+Space]", modeName);
             if (tooltip.Length > 63)
             {
                 tooltip = tooltip.Substring(0, 63);
@@ -212,7 +212,7 @@ namespace UniBijoyKeyboard
 
                         MessageBox.Show(
                             string.Format("Successfully loaded layout: {0} (v{1})", _layout.LayoutName, _layout.LayoutVersion),
-                            "UniBijoy Keyboard",
+                            "Unijoy Keyboard",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -220,7 +220,7 @@ namespace UniBijoyKeyboard
                     {
                         MessageBox.Show(
                             "Failed to load .avrolayout file:\n" + ex.Message,
-                            "UniBijoy Keyboard",
+                            "Unijoy Keyboard",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }

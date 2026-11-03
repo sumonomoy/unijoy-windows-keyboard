@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class SettingsForm : Form
     {
@@ -24,7 +24,7 @@ namespace UniBijoyKeyboard
             _config = config;
             _engine = engine;
 
-            Text = "UniBijoy Keyboard — Settings";
+            Text = "Unijoy Keyboard — Settings";
             Size = new Size(560, 520);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -52,7 +52,7 @@ namespace UniBijoyKeyboard
 
             var headerTitle = new Label
             {
-                Text = "UniBijoy Keyboard Settings",
+                Text = "Unijoy Keyboard Settings",
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI Semibold", 12.5f, FontStyle.Bold),
                 AutoSize = true,
@@ -93,7 +93,7 @@ namespace UniBijoyKeyboard
             // Group 2: Typing & Startup Options
             var grpOptions = new GroupBox
             {
-                Text = "Startup && UniBijoy Typing Preferences",
+                Text = "Startup && Unijoy Typing Preferences",
                 Location = new Point(16, 156),
                 Size = new Size(512, 178),
                 Font = new Font("Segoe UI Semibold", 9.5f, FontStyle.Bold)
@@ -101,7 +101,7 @@ namespace UniBijoyKeyboard
 
             _chkStartWithWindows = new CheckBox
             {
-                Text = "Start UniBijoy Keyboard automatically when Windows starts",
+                Text = "Start Unijoy Keyboard automatically when Windows starts",
                 Font = new Font("Segoe UI", 9.25f),
                 AutoSize = true,
                 Location = new Point(16, 28),
@@ -110,7 +110,7 @@ namespace UniBijoyKeyboard
 
             _chkStartInBengali = new CheckBox
             {
-                Text = "Start in Bengali (বাং UniBijoy) mode by default on launch",
+                Text = "Start in Bengali (বাং Unijoy) mode by default on launch",
                 Font = new Font("Segoe UI", 9.25f),
                 AutoSize = true,
                 Location = new Point(16, 55),
@@ -239,7 +239,7 @@ namespace UniBijoyKeyboard
         {
             if (_engine.IsBengaliMode)
             {
-                _lblLiveMode.Text = "Active Mode: বাং (UniBijoy) — Try typing: f (া), j+f (কা), j+g+j (ক্ক), g+f (আ)";
+                _lblLiveMode.Text = "Active Mode: বাং (Unijoy) — Try typing: f (া), j+f (কা), j+g+j (ক্ক), g+f (আ)";
                 _lblLiveMode.ForeColor = Color.FromArgb(4, 120, 87);
             }
             else

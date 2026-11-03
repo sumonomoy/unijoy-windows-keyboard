@@ -8,7 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public static class InstallerManager
     {
@@ -19,18 +19,18 @@ namespace UniBijoyKeyboard
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern uint RegisterWindowMessage(string lpString);
         private const string RegistryRunPath = @"Software\Microsoft\Windows\CurrentVersion\Run";
-        private const string RegistryUninstallPath = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\UniBijoyKeyboard";
-        private const string AppRegistryName = "UniBijoyKeyboard";
+        private const string RegistryUninstallPath = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\UnijoyKeyboard";
+        private const string AppRegistryName = "UnijoyKeyboard";
 
         public static string GetInstallDirectory()
         {
             string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            return Path.Combine(localAppData, "Programs", "UniBijoyKeyboard");
+            return Path.Combine(localAppData, "Programs", "UnijoyKeyboard");
         }
 
         public static string GetInstalledExePath()
         {
-            return Path.Combine(GetInstallDirectory(), "UniBijoyKeyboard.exe");
+            return Path.Combine(GetInstallDirectory(), "UnijoyKeyboard.exe");
         }
 
         public static bool IsInstalled()
@@ -60,7 +60,7 @@ namespace UniBijoyKeyboard
         {
             string installDir = GetInstallDirectory();
             string targetExe = GetInstalledExePath();
-            string targetLayout = Path.Combine(installDir, "UniBijoy.avrolayout");
+            string targetLayout = Path.Combine(installDir, "Unijoy.avrolayout");
             string currentExe = Path.GetFullPath(Application.ExecutablePath);
 
             if (!Directory.Exists(installDir))
@@ -75,7 +75,7 @@ namespace UniBijoyKeyboard
                 File.Copy(currentExe, targetExe, true);
             }
 
-            // Write UniBijoy.avrolayout to installDir
+            // Write Unijoy.avrolayout to installDir
             WriteLayoutFileToInstallDir(targetLayout);
 
             // Configure Start with Windows pointing to the installed executable
@@ -89,25 +89,25 @@ namespace UniBijoyKeyboard
             {
                 string startMenuDir = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.Programs),
-                    "UniBijoy Keyboard");
+                    "Unijoy Keyboard");
                 if (!Directory.Exists(startMenuDir))
                 {
                     Directory.CreateDirectory(startMenuDir);
                 }
 
                 CreateShortcut(
-                    Path.Combine(startMenuDir, "UniBijoy Keyboard.lnk"),
+                    Path.Combine(startMenuDir, "Unijoy Keyboard.lnk"),
                     targetExe,
                     "",
                     installDir,
-                    "UniBijoy Bengali (bn-BD) Keyboard");
+                    "Unijoy Bengali (bn-BD) Keyboard");
 
                 CreateShortcut(
-                    Path.Combine(startMenuDir, "Uninstall UniBijoy Keyboard.lnk"),
+                    Path.Combine(startMenuDir, "Uninstall Unijoy Keyboard.lnk"),
                     targetExe,
                     "--uninstall",
                     installDir,
-                    "Uninstall UniBijoy Keyboard");
+                    "Uninstall Unijoy Keyboard");
             }
 
             // Create Desktop shortcut
@@ -115,11 +115,11 @@ namespace UniBijoyKeyboard
             {
                 string desktopDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
                 CreateShortcut(
-                    Path.Combine(desktopDir, "UniBijoy Keyboard.lnk"),
+                    Path.Combine(desktopDir, "Unijoy Keyboard.lnk"),
                     targetExe,
                     "",
                     installDir,
-                    "UniBijoy Bengali (bn-BD) Keyboard");
+                    "Unijoy Bengali (bn-BD) Keyboard");
             }
 
             // Launch the installed application
@@ -139,8 +139,8 @@ namespace UniBijoyKeyboard
             if (!silent)
             {
                 DialogResult res = MessageBox.Show(
-                    "Are you sure you want to uninstall UniBijoy Keyboard from your computer?",
-                    "Uninstall UniBijoy Keyboard",
+                    "Are you sure you want to uninstall Unijoy Keyboard from your computer?",
+                    "Uninstall Unijoy Keyboard",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
                 if (res != DialogResult.Yes)
@@ -168,7 +168,7 @@ namespace UniBijoyKeyboard
             {
                 string desktopShortcut = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
-                    "UniBijoy Keyboard.lnk");
+                    "Unijoy Keyboard.lnk");
                 if (File.Exists(desktopShortcut))
                 {
                     File.Delete(desktopShortcut);
@@ -176,7 +176,7 @@ namespace UniBijoyKeyboard
 
                 string startMenuDir = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.Programs),
-                    "UniBijoy Keyboard");
+                    "Unijoy Keyboard");
                 if (Directory.Exists(startMenuDir))
                 {
                     Directory.Delete(startMenuDir, true);
@@ -217,8 +217,8 @@ namespace UniBijoyKeyboard
             if (!silent)
             {
                 MessageBox.Show(
-                    "UniBijoy Keyboard has been uninstalled.",
-                    "Uninstall UniBijoy Keyboard",
+                    "Unijoy Keyboard has been uninstalled.",
+                    "Uninstall Unijoy Keyboard",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
@@ -229,7 +229,7 @@ namespace UniBijoyKeyboard
             try
             {
                 // First ask any running instance to cleanly remove its NotifyIcon from the taskbar and exit
-                uint shutdownMsg = RegisterWindowMessage("UniBijoyKeyboard_CleanShutdown_Msg");
+                uint shutdownMsg = RegisterWindowMessage("UnijoyKeyboard_CleanShutdown_Msg");
                 if (shutdownMsg != 0)
                 {
                     PostMessage((IntPtr)0xFFFF, shutdownMsg, IntPtr.Zero, IntPtr.Zero);
@@ -237,7 +237,7 @@ namespace UniBijoyKeyboard
                 }
 
                 int currentPid = Process.GetCurrentProcess().Id;
-                string[] names = new[] { "UniBijoyKeyboard", "UniBijoyKeyboardSetup" };
+                string[] names = new[] { "UnijoyKeyboard", "UnijoyKeyboardSetup" };
                 foreach (string procName in names)
                 {
                     Process[] procs = Process.GetProcessesByName(procName);
@@ -268,7 +268,7 @@ namespace UniBijoyKeyboard
 
         private static void WriteLayoutFileToInstallDir(string targetLayoutPath)
         {
-            string localLayout = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UniBijoy.avrolayout");
+            string localLayout = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Unijoy.avrolayout");
             if (File.Exists(localLayout))
             {
                 if (!string.Equals(Path.GetFullPath(localLayout), Path.GetFullPath(targetLayoutPath), StringComparison.OrdinalIgnoreCase))
@@ -281,7 +281,7 @@ namespace UniBijoyKeyboard
             Assembly asm = Assembly.GetExecutingAssembly();
             foreach (string resName in asm.GetManifestResourceNames())
             {
-                if (resName.EndsWith("UniBijoy.avrolayout", StringComparison.OrdinalIgnoreCase))
+                if (resName.EndsWith("Unijoy.avrolayout", StringComparison.OrdinalIgnoreCase))
                 {
                     using (Stream s = asm.GetManifestResourceStream(resName))
                     {
@@ -330,9 +330,9 @@ namespace UniBijoyKeyboard
                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey(RegistryUninstallPath))
                 {
                     if (key == null) return;
-                    key.SetValue("DisplayName", "UniBijoy Keyboard (bn-BD)");
+                    key.SetValue("DisplayName", "Unijoy Keyboard (bn-BD)");
                     key.SetValue("DisplayVersion", "1.0.0");
-                    key.SetValue("Publisher", "UniBijoy");
+                    key.SetValue("Publisher", "Unijoy");
                     key.SetValue("DisplayIcon", targetExe + ",0");
                     key.SetValue("InstallLocation", installDir);
                     key.SetValue("UninstallString", "\"" + targetExe + "\" --uninstall");

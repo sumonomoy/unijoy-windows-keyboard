@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8A2B7D4E-41C3-4F92-9A56-71892A3D10E1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UniBijoyKeyboard</RootNamespace>
-    <AssemblyName>UniBijoyKeyboard</AssemblyName>
+    <RootNamespace>UnijoyKeyboard</RootNamespace>
+    <AssemblyName>UnijoyKeyboard</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -60,8 +60,8 @@
     <Compile Include="src\TrayIconGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UniBijoy.avrolayout">
-      <LogicalName>UniBijoyKeyboard.UniBijoy.avrolayout</LogicalName>
+    <EmbeddedResource Include="Unijoy.avrolayout">
+      <LogicalName>UnijoyKeyboard.Unijoy.avrolayout</LogicalName>
     </EmbeddedResource>
     <Content Include="src\app.ico" />
   </ItemGroup>

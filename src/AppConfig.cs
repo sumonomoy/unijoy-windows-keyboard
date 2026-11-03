@@ -4,12 +4,12 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class AppConfig
     {
         private const string RegistryRunPath = @"Software\Microsoft\Windows\CurrentVersion\Run";
-        private const string AppRegistryName = "UniBijoyKeyboard";
+        private const string AppRegistryName = "UnijoyKeyboard";
 
         // Typing & behavior options
         public bool StartInBengaliMode { get; set; }
@@ -30,7 +30,7 @@ namespace UniBijoyKeyboard
         private static string GetConfigFilePath()
         {
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string dir = Path.Combine(appData, "UniBijoyKeyboard");
+            string dir = Path.Combine(appData, "UnijoyKeyboard");
             if (!Directory.Exists(dir))
             {
                 Directory.CreateDirectory(dir);
@@ -102,7 +102,7 @@ namespace UniBijoyKeyboard
             {
                 string path = GetConfigFilePath();
                 var sb = new StringBuilder();
-                sb.AppendLine("# UniBijoy Keyboard Configuration");
+                sb.AppendLine("# Unijoy Keyboard Configuration");
                 sb.AppendLine("StartInBengaliMode=" + StartInBengaliMode);
                 sb.AppendLine("SmartVowelForming=" + SmartVowelForming);
                 sb.AppendLine("BengaliNumpad=" + BengaliNumpad);
@@ -170,7 +170,7 @@ namespace UniBijoyKeyboard
             {
                 MessageBox.Show(
                     "Failed to update Windows startup registry:\n" + ex.Message,
-                    "UniBijoy Keyboard",
+                    "Unijoy Keyboard",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }

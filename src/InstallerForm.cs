@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public sealed class InstallerForm : Form
     {
@@ -16,7 +16,7 @@ namespace UniBijoyKeyboard
 
         public InstallerForm(Icon appIcon)
         {
-            Text = "UniBijoy Keyboard (bn-BD) — Setup";
+            Text = "Unijoy Keyboard (bn-BD) — Setup";
             Size = new Size(520, 380);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -43,7 +43,7 @@ namespace UniBijoyKeyboard
 
             var lblTitle = new Label
             {
-                Text = "Install UniBijoy Keyboard (bn-BD)",
+                Text = "Install Unijoy Keyboard (bn-BD)",
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI Semibold", 13f, FontStyle.Bold),
                 AutoSize = true,
@@ -116,7 +116,7 @@ namespace UniBijoyKeyboard
 
             _chkLaunchNow = new CheckBox
             {
-                Text = "Launch UniBijoy Keyboard in the System Tray after installation",
+                Text = "Launch Unijoy Keyboard in the System Tray after installation",
                 Font = new Font("Segoe UI", 9.25f),
                 AutoSize = true,
                 Location = new Point(14, 110),
@@ -191,10 +191,10 @@ namespace UniBijoyKeyboard
 
                 Cursor = Cursors.Default;
                 MessageBox.Show(
-                    "UniBijoy Keyboard has been installed successfully!\n\n" +
+                    "Unijoy Keyboard has been installed successfully!\n\n" +
                     "• Installed to: " + InstallerManager.GetInstallDirectory() + "\n" +
                     "• Auto-start on Windows boot/restart: " + (_chkStartWithWindows.Checked ? "Enabled" : "Disabled") + "\n" +
-                    "• Tray Icons: 'EN' (English) / 'বাং' (Bengali UniBijoy)\n" +
+                    "• Tray Icons: 'EN' (English) / 'বাং' (Bengali Unijoy)\n" +
                     "• Toggle Hotkey: Ctrl + Space (or click the tray icon)",
                     "Installation Complete",
                     MessageBoxButtons.OK,
@@ -209,7 +209,7 @@ namespace UniBijoyKeyboard
                 _btnInstall.Enabled = true;
                 MessageBox.Show(
                     "Installation failed:\n" + ex.Message,
-                    "UniBijoy Keyboard Setup",
+                    "Unijoy Keyboard Setup",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

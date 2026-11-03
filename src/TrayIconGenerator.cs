@@ -5,7 +5,7 @@ using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     public static class TrayIconGenerator
     {

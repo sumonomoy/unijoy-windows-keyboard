@@ -1,10 +1,10 @@
-# UniBijoy Keyboard (`bn-BD`)
+# Unijoy Keyboard (`bn-BD`)
 
 [![Build & Release Windows Executables](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0078D6?logo=windows)](https://github.com/)
 [![Language](https://img.shields.io/badge/language-C%23%20%2F%20.NET%204.8-239120?logo=csharp)](https://github.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 
-A fast, lightweight, native Windows System Tray keyboard application for typing Bengali (`bn-BD` Unicode) using the **UniBijoy** (`.avrolayout`) layout — with **zero external runtime dependencies**.
+A fast, lightweight, native Windows System Tray keyboard application for typing Bengali (`bn-BD` Unicode) using the **Unijoy** (`.avrolayout`) layout — with **zero external runtime dependencies**.
 
 ---
 
@@ -22,28 +22,28 @@ A fast, lightweight, native Windows System Tray keyboard application for typing 
   - Press **`Ctrl + Space`** anywhere (or single left-click the **`EN` / `বাং`** tray icon) to toggle between English and Bengali.
   - Uses both a Win32 Raw Input sink (`WM_INPUT` / `RIDEV_INPUTSINK`) and low-level keyboard hook (`WH_KEYBOARD_LL`) so `Ctrl + Space` works reliably and stays synchronized with the tray icon.
 - **Built-in Windows Installer & Startup Persistence**:
-  - Includes **`UniBijoyKeyboardSetup.exe`** to install to `%LOCALAPPDATA%\Programs\UniBijoyKeyboard`, configure **Start with Windows** (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`), create Start Menu & Desktop shortcuts, and register in Windows **Installed Apps** (`Settings -> Apps -> Installed Apps`).
+  - Includes **`UnijoyKeyboardSetup.exe`** to install to `%LOCALAPPDATA%\Programs\UnijoyKeyboard`, configure **Start with Windows** (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`), create Start Menu & Desktop shortcuts, and register in Windows **Installed Apps** (`Settings -> Apps -> Installed Apps`).
 - **Built-in Layout Viewer & Custom `.avrolayout` Support**:
-  - View the Normal/Shift and AltGr visual keyboard diagrams embedded in `UniBijoy.avrolayout`, or search the interactive key-mapping reference table from the system tray menu.
+  - View the Normal/Shift and AltGr visual keyboard diagrams embedded in `Unijoy.avrolayout`, or search the interactive key-mapping reference table from the system tray menu.
 
 ---
 
 ## 🚀 Installation & Usage
 
 ### Option 1: Using the Setup Installer (Recommended)
-1. Run **`UniBijoyKeyboardSetup.exe`** (or build from source using `.\build.ps1`).
+1. Run **`UnijoyKeyboardSetup.exe`** (or build from source using `.\build.ps1`).
 2. Click **Install Now**.
-   - Installs to `%LOCALAPPDATA%\Programs\UniBijoyKeyboard`
+   - Installs to `%LOCALAPPDATA%\Programs\UnijoyKeyboard`
    - Registers **Start with Windows** so it persists across shutdowns and restarts
-   - Launches **`UniBijoyKeyboard.exe`** in the Windows System Tray
+   - Launches **`UnijoyKeyboard.exe`** in the Windows System Tray
 
 ### Option 2: Silent Command-Line Install / Uninstall
 ```powershell
 # Silent install
-.\UniBijoyKeyboardSetup.exe --install-silent
+.\UnijoyKeyboardSetup.exe --install-silent
 
 # Interactive uninstall
-.\UniBijoyKeyboard.exe --uninstall
+.\UnijoyKeyboard.exe --uninstall
 ```
 
 ### Keyboard Shortcuts & Tray Controls
@@ -59,14 +59,14 @@ A fast, lightweight, native Windows System Tray keyboard application for typing 
 
 ## 🛠️ Building from Source
 
-No third-party SDKs or NuGet packages are required. The project compiles directly using the `.NET Framework 4.x` C# compiler (`csc.exe`) pre-installed on every Windows 10/11 machine, or via MSBuild / Visual Studio (`UniBijoyKeyboard.csproj`).
+No third-party SDKs or NuGet packages are required. The project compiles directly using the `.NET Framework 4.x` C# compiler (`csc.exe`) pre-installed on every Windows 10/11 machine, or via MSBuild / Visual Studio (`UnijoyKeyboard.csproj`).
 
 ```powershell
-# Build UniBijoyKeyboard.exe and UniBijoyKeyboardSetup.exe
+# Build UnijoyKeyboard.exe and UnijoyKeyboardSetup.exe
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 
 # Run automated self-tests
-.\UniBijoyKeyboard.exe --self-test | Out-Host
+.\UnijoyKeyboard.exe --self-test | Out-Host
 ```
 
 ---
@@ -75,7 +75,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1
 
 | File / Path | Description |
 | :--- | :--- |
-| `UniBijoy.avrolayout` | UniBijoy keyboard layout definition (embedded into the executable at build time) |
+| `Unijoy.avrolayout` | Unijoy keyboard layout definition (embedded into the executable at build time) |
 | `src/Program.cs` | Application entry point, single-instance guard, CLI flags, and self-test runner |
 | `src/KeyboardHookEngine.cs` | `WH_KEYBOARD_LL` hook, `WM_INPUT` Raw Input sink, `EVENT_SYSTEM_FOREGROUND` hook refresh, and Unicode `SendInput` engine |
 | `src/AvroLayoutParser.cs` | Parser for `.avrolayout` XML key mappings and Base64 layout images |
@@ -84,9 +84,9 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1
 | `src/LayoutViewerForm.cs` | Visual layout viewer and searchable key-mapping reference table |
 | `src/SettingsForm.cs` | Startup preferences, typing options, and live test typing box |
 | `src/InstallerManager.cs` | Windows installation, startup registry (`Run`), shortcuts, and `Uninstall` registration |
-| `src/InstallerForm.cs` | Setup GUI dialog (`UniBijoyKeyboardSetup.exe`) |
+| `src/InstallerForm.cs` | Setup GUI dialog (`UnijoyKeyboardSetup.exe`) |
 | `build.ps1` | Zero-dependency PowerShell build script |
-| `UniBijoyKeyboard.csproj` | Standard MSBuild / Visual Studio project file |
+| `UnijoyKeyboard.csproj` | Standard MSBuild / Visual Studio project file |
 | `.github/workflows/build.yml` | GitHub Actions workflow for automated builds, self-tests, and release binaries |
 
 ---
@@ -94,4 +94,4 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1
 ## 📄 License & Credits
 
 - Application source code is licensed under the [MIT License](LICENSE).
-- The `UniBijoy.avrolayout` keyboard layout format and file are designed by [OmicronLab](https://www.omicronlab.com/).
+- The `Unijoy.avrolayout` keyboard layout format and file are designed by [OmicronLab](https://www.omicronlab.com/).

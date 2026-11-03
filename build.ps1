@@ -51,12 +51,12 @@ $g.Dispose()
 $bmp.Dispose()
 
 # 2. Stop running instance if any before overwriting exe
-Get-Process -Name "UniBijoyKeyboard" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Get-Process -Name "UnijoyKeyboard" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
 
-# 3. Compile UniBijoyKeyboard.exe
-$outExe = Join-Path $PSScriptRoot "UniBijoyKeyboard.exe"
-$setupExe = Join-Path $PSScriptRoot "UniBijoyKeyboardSetup.exe"
-$layoutFile = Join-Path $PSScriptRoot "UniBijoy.avrolayout"
+# 3. Compile UnijoyKeyboard.exe
+$outExe = Join-Path $PSScriptRoot "UnijoyKeyboard.exe"
+$setupExe = Join-Path $PSScriptRoot "UnijoyKeyboardSetup.exe"
+$layoutFile = Join-Path $PSScriptRoot "Unijoy.avrolayout"
 $srcFiles = Get-ChildItem -Path (Join-Path $PSScriptRoot "src\*.cs") | Select-Object -ExpandProperty FullName
 
 $compileArgs = @(
@@ -65,14 +65,14 @@ $compileArgs = @(
     "/target:winexe",
     "/out:$outExe",
     "/win32icon:$icoPath",
-    "/resource:$layoutFile,UniBijoyKeyboard.UniBijoy.avrolayout",
+    "/resource:$layoutFile,UnijoyKeyboard.Unijoy.avrolayout",
     "/reference:System.dll",
     "/reference:System.Core.dll",
     "/reference:System.Drawing.dll",
     "/reference:System.Windows.Forms.dll"
 ) + $srcFiles
 
-Write-Host "Compiling UniBijoyKeyboard.exe..."
+Write-Host "Compiling UnijoyKeyboard.exe..."
 & $cscPath $compileArgs
 if ($LASTEXITCODE -ne 0) {
     throw "Compilation failed with exit code $LASTEXITCODE"

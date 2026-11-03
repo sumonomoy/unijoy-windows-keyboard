@@ -6,14 +6,14 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-[assembly: AssemblyTitle("UniBijoy Keyboard")]
-[assembly: AssemblyDescription("Lightweight Windows System Tray Bengali (bn-BD) Keyboard for UniBijoy (.avrolayout)")]
-[assembly: AssemblyCompany("UniBijoy")]
-[assembly: AssemblyProduct("UniBijoy Keyboard")]
+[assembly: AssemblyTitle("Unijoy Keyboard")]
+[assembly: AssemblyDescription("Lightweight Windows System Tray Bengali (bn-BD) Keyboard for Unijoy (.avrolayout)")]
+[assembly: AssemblyCompany("Unijoy")]
+[assembly: AssemblyProduct("Unijoy Keyboard")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-namespace UniBijoyKeyboard
+namespace UnijoyKeyboard
 {
     internal static class Program
     {
@@ -72,7 +72,7 @@ namespace UniBijoyKeyboard
                 return 0;
             }
 
-            // If already installed in %LOCALAPPDATA%\Programs\UniBijoyKeyboard and user launches from project folder,
+            // If already installed in %LOCALAPPDATA%\Programs\UnijoyKeyboard and user launches from project folder,
             // update the installed executable and launch from the installed location
             if (InstallerManager.IsInstalled() && !InstallerManager.IsRunningFromInstallDir())
             {
@@ -94,7 +94,7 @@ namespace UniBijoyKeyboard
             InstallerManager.StopOtherRunningInstances();
 
             bool createdNew;
-            using (var mutex = new Mutex(true, "Local\\UniBijoyKeyboard_SingleInstance_Mutex", out createdNew))
+            using (var mutex = new Mutex(true, "Local\\UnijoyKeyboard_SingleInstance_Mutex", out createdNew))
             {
                 using (var context = new TrayApplicationContext())
                 {
@@ -120,7 +120,7 @@ namespace UniBijoyKeyboard
                     throw new Exception("Unexpected Win32 INPUT struct size: " + KeyboardHookEngine.GetInputStructSize());
                 }
 
-                // Verify key mappings from UniBijoy.avrolayout
+                // Verify key mappings from Unijoy.avrolayout
                 AssertKey(layout, Keys.J, "ক", "খ", "", "");
                 AssertKey(layout, Keys.F, "া", "অ", "আ", "অ");
                 AssertKey(layout, Keys.D, "ি", "ী", "ই", "ঈ");
